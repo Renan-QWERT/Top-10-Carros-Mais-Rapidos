@@ -1,11 +1,22 @@
+
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;/* Reseta o cálculo de largura de todos os elementos */
+    box-sizing: border-box; /* Impede que padding e border aumentem o tamanho do elemento */
+    margin: 0;
+    padding: 0;
 }
-body {
-    background-image: linear-gradient(45deg, #2b2828, rgb(8, 7, 7))
+
+/* Evita que qualquer coisa transborde da tela */
+
+html, body {
+    background-image: linear-gradient(45deg, #2b2828, rgb(8, 7, 7));
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden; /* Corta a rolagem horizontal indesejada */
 }
 h1 {
-    color: rgb(230, 15,50);
+    color: rgb(230, 15, 50);
 }
 main {
     max-width: 900px;
@@ -15,6 +26,7 @@ main {
 header {
     background-color: #151515;
     text-align: center;
+    padding: 20px 10px;
 }
 header h1 {
     font-size: 50px;
@@ -36,22 +48,56 @@ article {
 article img {
     object-fit: cover;
     border-radius: 10px;
+    width: 280px; /* Definido um tamanho base bonito para computador */
+    height: 180px;
 }
 span {
     background-color: rgb(196, 2, 2);
-    padding: 3px;
+    padding: 5px 10px;
     border-radius: 8px;
+    color: white;
 }
 div {
     flex: 1;
 }
 a {
-    background-color: rgb(230, 15,50);
-    padding: 2px;
+    background-color: rgb(230, 15, 50);
+    padding: 6px 12px;
     border-radius: 8px;
     color: rgb(231, 230, 230);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
 }
 .fot {
     display: flex;
     justify-content: center;
+}
+
+/* ==========================================
+   REGRAS PARA CELULAR (Telas de até 768px)
+   ========================================== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 28px; /* Diminui o título no celular */
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    main {
+        padding: 0px 10px;
+        margin: 15px auto;
+    }
+
+    article {
+        flex-direction: column; /* Empilha a imagem em cima e o texto embaixo */
+        align-items: flex-start; /* Alinha o conteúdo à esquerda */
+    }
+
+    article img {
+        width: 100%; /* A imagem ocupa toda a largura disponível do card */
+        height: 200px; /* Altura fixa para manter o padrão das fotos */
+    }
 }
